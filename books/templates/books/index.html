@@ -3,3 +3,17 @@
 <a href="{% url "books:new" %}">新增書</a>
 
 <p>請列出書的列表</p>
+
+<ul>
+{% for book in books %}
+    <li>
+        <section>
+            <h2>{{ book.title }}</h2>
+            <h3>{{ book.publisher }}</h3>
+            <h3>{{ book.publication_date }}</h3>
+            <h4>{{ book.price }}</h4>
+            <h4>{{ book.page }}</h4>
+        </section>
+    </li>
+{% endfor %}
+</ul>
