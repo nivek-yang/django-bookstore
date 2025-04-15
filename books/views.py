@@ -30,3 +30,19 @@ def new(req):
 def show(req, id):
     book = get_object_or_404(Book, pk=id)
     return render(req, "books/show.html", {"book": book})
+
+def update(req, id):
+    if req.POST:
+        book = get_object_or_404(Book, pk=id)
+
+        book.title = req.POST["title"]
+        book.publisher = req.POST["publisher"]
+        book.publication_date = req.POST["publication_date"]
+        book.price = req.POST["price"]
+        book.page = req.POST["page"]
+
+        book.save()
+        return redirect("books:show", book.id)
+    else:
+        book = get_object_or_404(Book, pk=id)
+        return render(req, "books/update.html", {"book": book})
