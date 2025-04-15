@@ -7,13 +7,15 @@
 <ul>
 {% for book in books %}
     <li>
-        <section>
-            <h2>{{ book.title }}</h2>
-            <h3>{{ book.publisher }}</h3>
-            <h3>{{ book.publication_date }}</h3>
-            <h4>{{ book.price }}</h4>
-            <h4>{{ book.page }}</h4>
-        </section>
+        <a href="{% url 'books:show' book.id %}">
+            <section>
+                <h2>{{ book.title }}</h2>
+                <h3>{{ book.publisher }}</h3>
+                <h3>{{ book.publication_date }}</h3>
+                <h4>{{ book.price }}</h4>
+                <h4>{{ book.page }}</h4>
+            </section>
+        </a>
     </li>
 {% endfor %}
 </ul>

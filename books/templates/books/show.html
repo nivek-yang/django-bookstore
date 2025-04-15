@@ -1,0 +1,8 @@
+<h1>書名: {{ book.title }}</h1>
+<h2>出版商: {{ book.publisher }}</h2>
+<h2>出版日期: {{ book.publication_date }}</h2>
+<h2>價格: {{ book.price }}</h2>
+<h2>頁數: {{ book.page }}</h2>
+
+
+<a href="{% url 'books:index' %}">回書籍列表</a>
