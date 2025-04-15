@@ -8,3 +8,8 @@
 <a href="{% url 'books:index' %}">回書籍列表</a>
 
 <a href="{% url 'books:update' book.id %}">修改</a>
+
+<form action="{% url 'books:delete' book.id %}" method="post" onsubmit="return confirm('確定要刪除？')">
+    {% csrf_token %}
+    <button>刪除</button>
+</form>

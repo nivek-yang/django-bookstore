@@ -21,7 +21,7 @@ def index(req):
         return redirect("books:show", book.id)
 
     else:
-        books = Book.objects.all()
+        books = Book.objects.order_by("-id")
         return render(req, "books/index.html", {"books": books})
 
 def new(req):
@@ -46,3 +46,9 @@ def update(req, id):
     else:
         book = get_object_or_404(Book, pk=id)
         return render(req, "books/update.html", {"book": book})
+    
+def delete(req, id):
+    book = get_object_or_404(Book, pk=id)
+    book.delete()
+
+    return redirect("books:index")
